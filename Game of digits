@@ -1,0 +1,44 @@
+q.-> Given a number N, find the smallest number K, such that product of digits of K is equal to N.
+
+Input: First line of input contains number of testcases T. For each testcase, there will be a single line containing N.
+
+ 
+class Solution
+{
+    
+    String smallestK(long n)
+    {
+        // Write your code he
+{
+
+    Stack<Integer> st=new Stack<>();
+    int j=0;
+    if(n>=1&&n<=9)
+    return Integer.toString((int)n); 
+        for (int i = 9; i>=2; i--) 
+        { 
+            // While i divides n, print i and divide n 
+            while (n%i == 0) 
+            { 
+                //System.out.print(i + " ");
+                 st.add(i);
+                n /= i; 
+            } 
+        } 
+        if(n!=1)
+        return "-1";
+    
+         long p=0;
+        //return Integer.toString(al.get(0));
+        while(st.isEmpty()==false){
+            p=p*10+st.peek();
+            st.pop();
+        }
+     
+        String s1=Long.toString(p);
+        return s1;
+}
+}
+        
+
+}
